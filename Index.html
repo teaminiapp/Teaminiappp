@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TEA Mini App</title>
+    <script>
+      async function reward(type) {
+        const res = await fetch("/api/reward", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ type }),
+        });
+        const data = await res.json();
+        alert(data.msg || `+${data.amount} TEA`);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>TEA Airdrop</h1>
+    <button onclick="reward('tap')">Tap to Earn</button><br /><br />
+    <button onclick="reward('checkin')">Daily Check-in</button><br /><br />
+    <p>Puzzle, Scratch, Wallet coming soon</p>
+  </body>
+</html 
